@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "696834123367",
+    "firebase_url": "https://ai-task-manager-final-default-rtdb.firebaseio.com",
+    "project_id": "ai-task-manager-final",
+    "storage_bucket": "ai-task-manager-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696834123367:android:efec865685bd4d2950d6c2",
+        "android_client_info": {
+          "package_name": "com.cools01.aitaskmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696834123367-ubr21bslinamvrvb4nne1krpm63e31h7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cools01.aitaskmanager",
+            "certificate_hash": "c27c35999880f606a84a833149e4c1c4501aff6f"
+          }
+        },
+        {
+          "client_id": "696834123367-eogaek1gvuu4ie8m7hvcgfhd7go22ko7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk_VEnjXVgGYfxb8S7qhVAM4o6uwrmxEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696834123367-eogaek1gvuu4ie8m7hvcgfhd7go22ko7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

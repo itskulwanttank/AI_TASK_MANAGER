@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignupActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"/>
+    <LinearLayout
+        android:id="@+id/div"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" />
+
+    <ImageView
+        android:id="@+id/ktlogo"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/div"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_menu_camera" />
+
+
+    <LinearLayout
+        android:id="@+id/text"
+        android:layout_below="@+id/ktlogo"
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Welcome To KTgram" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/gggl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:src="@drawable/common_google_signin_btn_icon_dark_normal" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="5dp"
+            android:text="Sign In With Google"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+
+    <TextView
+        android:layout_below="@id/text"
+        android:id="@+id/usernameTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter your username"
+        android:visibility="gone" />
+
+    <EditText
+        android:layout_below="@id/usernameTv"
+        android:id="@+id/usernameEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="username"
+        android:inputType="text"
+        android:visibility="gone" />
+
+    <Button
+        android:layout_below="@id/errTv"
+        android:id="@+id/button_continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:enabled="false"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/errTv"
+        android:layout_below="@id/usernameEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/fc"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="50dp"
+        android:padding="7dp"
+
+        android:orientation="horizontal">
+        <TextView
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+            android:gravity="center"
+            android:textColor="#D50000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="!!! Sign Up with your faucetpay email only !!!"
+            />
+    </LinearLayout>
+</RelativeLayout>
