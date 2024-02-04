@@ -65,6 +65,22 @@ public class HomeFragment extends Fragment {
 
         root.findViewById(R.id.btnAddTopic).setOnClickListener(v -> showAddTopicDialog());
 
+        mainTopicAdapter.setImage1ClickListener((view, position, key) -> {
+            // Handle the click on the TextView here
+            // String selectedTopic = key;
+            // Toast.makeText(MainActivity2.this, "Image 1 Clicked for " + selectedTopic, Toast.LENGTH_SHORT).show();
+            // Show the delete topic dialog
+            showDeleteTopicDialog(position, key);
+        });
+        mainTopicAdapter.setImage2ClickListener((view, position, key) -> {
+            // Handle the click on the TextView here
+            String selectedTopic = key;
+            String currentValue = mainTopicAdapter.getItem(position).child("message").getValue(String.class);
+
+            // Toast.makeText(MainActivity2.this, "Image 2 Clicked for " + selectedTopic, Toast.LENGTH_SHORT).show();
+            showEditTopicDialog(position, key , currentValue);
+        });
+
         return root;
     }
 
@@ -137,6 +153,55 @@ public class HomeFragment extends Fragment {
 
         alertDialog.show();
     }
+
+    private void showDeleteTopicDialog(int position, String key) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Delete Topic");
+
+        builder.setPositiveButton("Delete", (dialog, which) -> {
+            // Delete the topic from the database and update the UI
+            deleteTopic(key, position);
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
+        builder.show();
+    }
+
+    private void deleteTopic(String key, int position) {
+        DatabaseReference topicsRef = FirebaseDatabase.getInstance().getReference("topics");
+        topicsRef.child(key).removeValue();
+
+        // Update the UI
+        mainTopicAdapter.removeItem(position);
+    }
+    private void showEditTopicDialog(int position, String key, String currentValue) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Edit Topic");
+
+        final EditText input = new EditText(getContext());
+        input.setText(currentValue);  // Pre-fill with the current value
+        builder.setView(input);
+
+        builder.setPositiveButton("Save", (dialog, which) -> {
+            // Edit the topic in the database and update the UI
+            String editedTopic = input.getText().toString().trim();
+            editTopic(key, position, editedTopic);
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
+        builder.show();
+    }
+
+    private void editTopic(String key, int position, String editedTopic) {
+        DatabaseReference topicsRef = FirebaseDatabase.getInstance().getReference("topics");
+        topicsRef.child(key).child("message").setValue(editedTopic);
+
+        // Update the UI
+        mainTopicAdapter.editItem(position, editedTopic);
+    }
+
 
     @Override
     public void onDestroyView() {
