@@ -29,11 +29,6 @@ import java.util.List;
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
-    private EditText editTextSearch, editTextAddItem;
-    private Button buttonSearch, buttonAddItem;
-    private RecyclerView recyclerViewResults;
-    private ResultAdapter resultAdapter;
-    private List<String> searchResults;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,77 +38,9 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        // Initialize views
-        editTextSearch = root.findViewById(R.id.editTextSearch);
-        buttonSearch = root.findViewById(R.id.buttonSearch);
-        editTextAddItem = root.findViewById(R.id.editTextAddItem);
-        buttonAddItem = root.findViewById(R.id.buttonAddItem);
-        recyclerViewResults = root.findViewById(R.id.recyclerViewResults);
-
-        // Set up RecyclerView
-        recyclerViewResults.setLayoutManager(new LinearLayoutManager(requireContext()));
-        searchResults = new ArrayList<>();
-        resultAdapter = new ResultAdapter(searchResults);
-        recyclerViewResults.setAdapter(resultAdapter);
-
-        // Set up button click listeners
-        buttonSearch.setOnClickListener(v -> searchInDatabase());
-        buttonAddItem.setOnClickListener(v -> addItemToDatabase());
 
         return root;
     }
-
-    private void searchInDatabase() {
-        String searchText = editTextSearch.getText().toString().toLowerCase();
-
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("items");
-
-        Query query = databaseRef.orderByChild("name");
-
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                searchResults.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String itemName = snapshot.child("name").getValue(String.class);
-                    if (containsWholeWord(itemName.toLowerCase(), searchText)) {
-                        searchResults.add(itemName);
-                    }
-                }
-                resultAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle errors
-            }
-        });
-    }
-
-    private boolean containsWholeWord(String itemName, String searchText) {
-        String[] words = itemName.split("\\s+"); // Split into words
-        for (String word : words) {
-            if (word.equals(searchText)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-
-    private void addItemToDatabase() {
-        String newItemName = editTextAddItem.getText().toString();
-
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("items");
-        String itemId = databaseRef.push().getKey(); // Generate a unique key for the new item
-
-        databaseRef.child(itemId).child("name").setValue(newItemName);
-
-        // Optional: Clear the input field after adding the item
-        editTextAddItem.setText("");
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

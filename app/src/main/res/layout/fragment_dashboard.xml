@@ -5,39 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <EditText
-        android:id="@+id/editTextSearch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter search text"/>
+
 
     <Button
         android:id="@+id/buttonSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextSearch"
-        android:text="Search"/>
+       android:text="FAQ's"/>
 
-    <EditText
-        android:id="@+id/editTextAddItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonSearch"
-        android:layout_marginTop="16dp"
-        android:hint="Enter item name"/>
 
-    <Button
-        android:id="@+id/buttonAddItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextAddItem"
-        android:layout_marginTop="16dp"
-        android:text="Add Item"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewResults"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/buttonAddItem"
-        android:layout_marginTop="16dp"/>
 </RelativeLayout>
