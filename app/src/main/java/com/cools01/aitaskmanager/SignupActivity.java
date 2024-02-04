@@ -259,7 +259,7 @@ public class SignupActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             // User is signed in.
-            Intent i = new Intent(SignupActivity.this , MainActivity2.class);
+            Intent i = new Intent(SignupActivity.this , MainActivity3.class);
             startActivity(i);
             finish();
         } else {
@@ -294,7 +294,7 @@ public class SignupActivity extends AppCompatActivity {
                             // Clear any previous error message
                             errorTextView.setText("");
                             progressBar.setVisibility(View.GONE);
-                            Intent i = new Intent(SignupActivity.this , MainActivity2.class);
+                            Intent i = new Intent(SignupActivity.this , MainActivity3.class);
                             startActivity(i);
                             finish();
                         }
