@@ -144,7 +144,7 @@ public class HomeFragment extends Fragment {
         TextView messageTextView = customView.findViewById(R.id.alertMessage);
         Button okButton = customView.findViewById(R.id.okButton);
 
-        titleTextView.setText("Long Click Alert");
+        titleTextView.setText("");
         messageTextView.setText(currentValue);
 
         AlertDialog alertDialog = builder.create();

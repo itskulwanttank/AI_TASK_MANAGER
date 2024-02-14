@@ -33,7 +33,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:contentDescription="TODO"
-        android:src="@drawable/ic_menu_camera" />
+        android:src="@drawable/completedtask" />
 
 
     <LinearLayout
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Welcome To KTgram" />
+            android:text="Welcome To TASK MANAGER" />
     </LinearLayout>
 
     <LinearLayout
@@ -127,15 +127,6 @@
         android:padding="7dp"
 
         android:orientation="horizontal">
-        <TextView
-            android:textSize="16sp"
-            android:textStyle="bold"
 
-            android:gravity="center"
-            android:textColor="#D50000"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="!!! Sign Up with your faucetpay email only !!!"
-            />
     </LinearLayout>
 </RelativeLayout>
