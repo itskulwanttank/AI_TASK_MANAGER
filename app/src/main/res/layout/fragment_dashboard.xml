@@ -7,11 +7,63 @@
 
 
 
-    <Button
-        android:id="@+id/buttonSearch"
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+
+
+
+    <TextView
+        android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-       android:text="FAQ's"/>
+        android:text="ASK AI TO GET PRODUCTIVE"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv1"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:text="Select any random topic!"
+                android:textStyle="bold|italic" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/tv2"
+        android:id="@+id/preTopicRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent" />
+    <ProgressBar
+        android:layout_below="@id/tv2"
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/refreshButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refresh Topics"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_margin="5dp" />
+
+        </RelativeLayout>
+
 
 
 </RelativeLayout>
+

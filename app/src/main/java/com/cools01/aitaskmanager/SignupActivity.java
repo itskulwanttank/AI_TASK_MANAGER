@@ -198,7 +198,7 @@ public class SignupActivity extends AppCompatActivity {
         IdpResponse response = result.getIdpResponse();
         if (result.getResultCode() == RESULT_OK) {
             // Successfully signed in
-            Toast.makeText(this, "ssssssssssss", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Signed In Successfully", Toast.LENGTH_SHORT).show();
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             // ...
             getUserData();
@@ -212,7 +212,7 @@ public class SignupActivity extends AppCompatActivity {
             usernameEt.setVisibility(View.VISIBLE);
             usernameTv.setVisibility(View.VISIBLE);
         } else {
-            Toast.makeText(this, "ffffffffffffffffff", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sign In Failed", Toast.LENGTH_SHORT).show();
 
 
             // Sign in failed. If response is null the user canceled the

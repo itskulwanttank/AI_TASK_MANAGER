@@ -17,12 +17,14 @@
         android:theme="@style/Theme.AITASKMANAGER"
         tools:targetApi="31">
         <activity
+            android:name=".ReadAiActivity"
+            android:theme="@style/Theme.AITASKMANAGER.NoActionBar"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity3"
             android:exported="false"
-            android:theme="@style/Theme.AITASKMANAGER.NoActionBar"
-            android:label="@string/title_activity_main3" />
-
-
+            android:label="@string/title_activity_main3"
+            android:theme="@style/Theme.AITASKMANAGER.NoActionBar" />
         <activity
             android:name=".SignupActivity"
             android:exported="true"
